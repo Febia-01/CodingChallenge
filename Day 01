@@ -1,0 +1,63 @@
+Set Matrix Zero -> Leetcode 73
+
+The pseudo code:
+1. Brute force Approach
+mark Row(i){
+  for(j=0;j<n;j++){
+    if(arr[i][j])
+      arr[i][j] = -1;
+  }
+}
+mark column(j){
+  for(i=0;i<m;i++){
+    if(arr[i][j] != 0)
+      arr[i][j] = -1;
+  }
+}
+
+for(i=0;i<m;i++){
+  for(j=0;j<n;j++){
+    if(arr[i][j] == 0){
+      markRow(i);
+      markColumn(j);
+    }
+  }
+}
+for(i=0;i<n;i++){
+  for(j=0;j<n;j++){
+    if(arr[i][j] == -1)
+      arr[i][j] = 0;
+  }
+}
+T.C = O(n^3)
+
+The solution I submitted on leetcode:
+2. Optimized solution
+- Calculate the number of rows (m) and columns (n) in the input matrix
+- Initialize two arrays to keep track of rows and columns should be zeroed out.
+- When encountered by zero mark the row and column element of arrays as 1.
+- After marking, all rows and columns in the two arrays marked 1 will set to 0.
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int arr1[] = new int[n];
+        int arr2[] = new int[m];
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] == 0) {
+                    arr1[i] = arr2[j] = 1;
+                }
+            }
+        }
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (arr1[i] == 1 || arr2[j] == 1) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+}
