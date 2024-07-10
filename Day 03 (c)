@@ -1,0 +1,69 @@
+Sort colors -> Leetcode 75
+
+This can also be considered as sort an array of 0's, 1's, and 2's
+
+Illustration:
+arr[] = {0,1,2,0,1,2,1,2,0,0,0,1}
+ans = {0,0,0,0,0,1,1,1,1,2,2,2}
+
+Brute force solution:
+- Merge sort [any sorting algorithm]
+T.C -> O(nlogn)
+S.C -> O(n)
+
+Better solution:
+- We know the array has only elements 0,1,2.
+- Take 3 variables to count each (count0, count1, count2)
+- Using 3 for loops modify the array
+T.C -> O(2n)
+S.C -> O(1)
+for(i=0;i<n;i++){
+  if(a[i]==0)
+    count0++
+  else if(a[i]==1)
+    count1++
+  else
+    count2++
+}
+for(i=0;i<count0;i++)
+  a[i] = 0
+for(i=count0;i<count0+count1;i++)
+  a[i] = 1
+for(i=count0+count1;i<n;i++)
+  a[i] = 2
+
+Optimal solution:
+This can be done using DNF algorithm.
+- loop run until mid <= high
+- The 3 cases:
+  1. if(arr[mid]==0) swap the elements in the low and mid position and increment the low and mid value by 1
+  2. if(arr[mid]==1) just increment the mid value by 1
+  3. if(arr[mid]==2) swap the elements in the mid and high position and decrement the value of high by 1
+T.C -> O(n)
+S.C -> O(1)
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length;
+        int low = 0;
+        int mid = 0;
+        int high = n-1;
+        int temp;
+
+        while(mid<=high){
+            if(nums[mid]==0){
+                temp = nums[low];
+                nums[low] = nums[mid];
+                nums[mid] = temp;
+                low++;
+                mid++;
+            }else if(nums[mid]==1){
+                mid++;
+            }else{
+                temp = nums[mid];
+                nums[mid] = nums[high];
+                nums[high] = temp;
+                high--;
+            }
+        }
+    }
+}
