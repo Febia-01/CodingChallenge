@@ -1,1 +1,59 @@
+Maximum Subarray -> Leetcode 53
 
+A subarray is the contiguous part of an array.
+
+Illustration:
+arr[] = {-2, -3, 4, -1, -2, 1, 5, -3}
+The sub-array which gives the maximum sum is {4, -1, -2, 1, 5}
+ans = 7
+
+Brute force solution:
+- Try out all the subarrays
+- return the one which gives the maximum sum.
+Time complexity is approximately O(n^3)
+max = int-min
+for(i=0;I<n;i++){
+  for(j=i;j<n;j++){
+    sum = 0;
+    for(k=i;k<j;k++){
+      sum = sum + arr[k];
+      max = max(sum,max);
+    }
+  }
+}
+
+Better solution:
+- Adding the next element to the previous sum rather than generating all subarrays and adding.
+Time complexity will be approx O(n^2)
+for(i=0;I<n;i++){
+  sum = 0;
+  for(j=i;j<n;j++){
+      sum = sum + arr[j];
+      max = max(sum,max);
+  }
+}
+
+Optimal solution:
+Here Kadane's algorithm is used.
+- One loop to iterate the given array
+- While iterating, add the elements to the sum variable, and the maximum one is considered
+- If the sum becomes negative, set the sum to 0
+The time complexity of this is O(n)
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int n = nums.length;
+        int max = Integer.MIN_VALUE;
+        int sum = 0;
+        for(int i = 0; i < n; i++){
+            sum += nums[i];
+
+            if(sum > max)
+                max = sum;
+
+            if(sum < 0)
+                sum = 0;
+        }
+
+        return max;
+    }
+}
