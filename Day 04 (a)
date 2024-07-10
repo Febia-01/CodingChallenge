@@ -1,1 +1,43 @@
+Best time to buy and sell stock -> Leetcode 121
 
+Illustration:
+arr[] = {7,1,5,3,6,4}
+Buy and sell stock can only be done once. And the question is to maximize the profit.
+
+So, if you are selling on ith day you buy on the minimum price from 1st to (i-1
+
+Brute force solution:
+- Use a for loop of i from 0 to n
+- Use another for loop of j from i+1 to n
+- if(arr[j]>arr[I]), take the difference and compare and store it in the maximum variable.
+- Return maximum
+T.C -> O(n^2)
+
+Optimal solution:
+- Take two variables maxProfit and minPrice
+- forloop from 0 to n
+- if greater than the current element update minPrice
+- Take the difference between minPrice and the current element and maintain maxProfit
+- Return maxProfit
+T.C -> O(n)
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        int n = prices.length;
+
+        int min = prices[0];
+        int profit = 0;
+        int cost = 0;
+        
+        for(int i=1;i<n;i++){
+
+            cost = prices[i] - min;
+            profit = Math.max(profit, cost);
+            min = Math.min(min, prices[i]);
+            
+        }
+
+        return profit;
+
+    }
+}
