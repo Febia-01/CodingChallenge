@@ -1,0 +1,31 @@
+Merge sorted arrat -> Leetcode 88
+
+
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int length = m + n;
+        int gap = (length/2) + (length%2);
+        
+        System.arraycopy(nums2, 0, nums1, m, n);
+        
+        while (gap > 0) {
+            
+            int left = 0;
+            
+            while (left + gap < length) {
+                
+                if (nums1[left] > nums1[left + gap]) {
+                    int temp = nums1[left];
+                    nums1[left] = nums1[left + gap];
+                    nums1[left + gap] = temp;
+                
+                }
+                left++;
+            }
+            
+            if(gap == 1) break;
+            gap = (gap/2) + (gap%2);
+        }
+    }
+}
