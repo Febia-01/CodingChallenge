@@ -1,25 +1,42 @@
 Search a 2D Matrix -> Leetcode 74
 
+Illustration:
+arr[][] = 
+            10 20 30 40 
+            15 25 35 45 
+            27 29 37 48
+            32 33 39 50
+sorted array -> every row and column are sorted.
+target = 29 
+ans  = true
+
+Brute force solution:
+- run two for loops to traverse
+- compare each element with the given target.
+T.C -> O(n^2), S.C -> O(1)
+
+Optimal solution:
+- Because this is a sorted matrix we can apply binary search
+- Start from top right 
+- Compare if the element is equal, greater than or less than and ignore the other half until result comes.
+T.C -> O(n+m), S.C -> O(1)
+
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix.length == 0)
-        return false;
+        
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int i = 0;
+        int j = m-1;
 
-        final int m = matrix.length;
-        final int n = matrix[0].length;
-        int l = 0;
-        int r = m * n;
-
-        while (l < r) {
-        final int mid = (l + r) / 2;
-        final int i = mid / n;
-        final int j = mid % n;
-        if (matrix[i][j] == target)
-            return true;
-        if (matrix[i][j] < target)
-            l = mid + 1;
-        else
-            r = mid;
+        while(i>=0 && i<n && j>=0 && j<m){
+            if(matrix[i][j] == target){
+                return true;
+            }else if(matrix[i][j]>target){
+                j--;
+            }else{
+                i++;
+            }
         }
         return false;
 
