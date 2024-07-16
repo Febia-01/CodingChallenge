@@ -1,6 +1,26 @@
-Merge sorted arrat -> Leetcode 88
+Merge sorted array -> Leetcode 88
 
+Illustration:
+num1 = [1,2,3,0,0,0] num2 = [2,5,6] n=3
+Arrays have to be merged [0 will be ignored]
+result = [1,2,2,3,5,6]
 
+Brute force solution:
+- Copy elements from num2 into the unused position of num1
+- Use a sorting algorithm to sort the array
+T.C -> O((m+n)^2)
+
+There are built-in functions in Java for this like:
+    System.arraycopy(nums2,0,nums1,m,n) -> to copy elements
+    Arrays.sort(nums1) -> to sort elements
+
+Optimal solution:
+- Using gap method
+- Elements from nums2 are copied into the end of nums1 to form a single combined array of length m + n.
+- The initial gap is calculated as (length/2) + (length%2), where length is the total length of the combined array.
+- Using the gap, compare elements nums1[left] and nums1[left + gap]. If nums1[left] is greater, swap them. Repeat this for all elements in the array for the current gap.
+- The gap is halved and adjusted using (gap/2) + (gap%2), and the process is repeated until the gap becomes 1. When the gap is 1, it performs the final comparison and sorting pass.
+T.C -> O((m+n)log(m+N))
 
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
