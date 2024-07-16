@@ -1,5 +1,8 @@
 Pow(x, n) -> Leetcode 50
 
+Illustration:
+
+
 class Solution {
     public double myPow(double x, int n) {
 
