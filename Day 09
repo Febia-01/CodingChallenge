@@ -1,32 +1,49 @@
 Unique Paths -> Leetcode 62
 
 Brute force solution:
-
+- Recursion
+- Transition -> i+1,j & i,j+1
+- Base case -> i>=m, j>=n return 0 & i==m-1, j==n-1 return 1
+T.C -> O(n^2), S.C -> O(n^2) Both are exponential
+if(i==m-1 && j==n-1) return 1;
+if(i>=m || j>=n) return 0;
+else return count(i+1,j) + count(i,j+1);
 
 Better solution:
-class Solution {
-    public int uniquePaths(int m, int n) {
-        
-        int[][] dp = new int[m][n];
-
-        // Initialize the first row and column with 1.
-        for (int i = 0; i < m; i++) {
-            dp[i][0] = 1;
-        }
-        for (int j = 0; j < n; j++) {
-            dp[0][j] = 1;
-        }
-
-        // Fill in the rest of the table.
-        for (int i = 1; i < m; i++) {
-            for (int j = 1; j < n; j++) {
-                dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
-            }
-        }
-
-        return dp[m - 1][n - 1];
-
+- A 2D array dp of size m x n is created. This array will be used to store the number of unique paths to each cell.
+- Initialize the First Row and Column with 1 [first column to reach any cell in the column by moving down, first row to reach any cell in the row by moving right]
+- For each cell dp[i][j], the number of unique paths to that cell is the sum of the number of unique paths to the cell directly above it (dp[i - 1][j]) and the cell directly to the left of it (dp[i][j - 1]).
+- The value at dp[m - 1][n - 1] will contain the number of unique paths from the top-left corner to the bottom-right corner of the grid.
+T.C -> O(mxn), S.C -> O(mxn)
+int[][] dp = new int[m][n];
+// Initialize the first row and column with 1.
+for (int i = 0; i < m; i++) {
+    dp[i][0] = 1;
+}
+for (int j = 0; j < n; j++) {
+    dp[0][j] = 1;
+}
+// Fill in the rest of the table.
+for (int i = 1; i < m; i++) {
+    for (int j = 1; j < n; j++) {
+        dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
     }
 }
+return dp[m - 1][n - 1];
 
 Optimal solution:
+- If we observe examples there is a similarity in paths from start to end. Each time we are taking an exactly m+n-2 number of steps to reach the end.
+- From start to reach the end we need a certain number of rightward directions and a certain number of downward directions. So we can figure out we need n-1 no. of rightward direction and m-1 no. of downward direction to reach the endpoint.
+- calculate the combinations [ie: (m+n-2) C (n-1) or (m+n-2) C (m-1)] we’ll get the total number of paths.
+T.C -> O(m-1) + O(n-1), S.C -> O(1)
+class Solution {
+    public int uniquePaths(int m, int n) {
+        // Using combination concept
+        int N = m + n - 2;
+        int r = n-1;
+        double res = 1;
+        for(int i = 1; i <= r; i++)
+            res = res * (N-r+i) / i;
+        return (int)res;
+    }
+}
