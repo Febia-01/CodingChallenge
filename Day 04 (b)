@@ -1,5 +1,19 @@
 Rotate image -> Leetcode 48
 
+Illustration:
+matrix = [[1,2,3][4,5,6][7,8,9]]
+ans = [[7,4,1],[8,5,2],[9,6,3]]
+
+Brute force solution:
+- Take another matrix to store the answer with n*n size
+- The approach is, to take the first row and put in the last column and so on.
+T.C -> O(n^2), S.C -> O(n^2)
+
+Optimal Solution:
+- In-place solution [don't take any extra space]
+- Transpose the matrix changing the columns to rows & rows to columns
+- Reverse each row of the matrix 
+T.C -> O(n^2), S.C -> O(1)
 
 class Solution {
     public void rotate(int[][] matrix) {
