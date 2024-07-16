@@ -1,6 +1,21 @@
 Find the Duplicate Number -> Leetcode 287
 
+Illustration:
+nums = [1,3,4,2,2] [only one repeated number]
+ans = 2
+
+Brute force solution:
+- Sort the array
+- Traverse and compare (I & i+1)
+- When i & i+1 is equal return I
+T.C -> O(nlogn)
+
 Better solution:
+- Use hashmap
+- Take a frequency array (n+1) and initialize it to 0
+- Traverse through the array and increase frequency by 1
+- If frequency is not zero, then that is the answer
+T.C -> O(n), S.C -> O(n)
 
 int n = nums.length;
 int freq[] = new int[n + 1];
@@ -13,6 +28,10 @@ for (int i = 0; i < n; i++) {
 }
 
 Optimal solution:
+- Linked list cycle method / Tortoise method
+- Initialize two pointers (slow, fast) at 0th position. [slow increment by 1 step and fast increment by 2 steps]
+- After first collision, take fast to 0th position until it collides with slow  increment both by 1 step. And the colliding elements will be the answer.
+T.C -> O(n), S.C -> O(1)
 
 class Solution {
     public int findDuplicate(int[] nums) {
