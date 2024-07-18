@@ -1,5 +1,29 @@
 Majority Element -> Leetcode 169
 
+Illustration:
+arr[] = [3,2,3]
+The majority element is the element that appears more than n/2 times.
+ans = 3
+
+Brute force solution:
+- Take one element and iterate the entire array
+- Whenever we find the some element count++
+- if count > n/2, return that element
+T.C -> O(n^2), S.C -> O(1)
+
+Better solution:
+- Use hashmap. Store (key, value) pairs, key-element, value-occurrence
+- Traverse the array and update the value of the key. Simultaneously check if the value is greater than the floor of n/2.
+T.C -> O(nlogn), S.C -> O(n)
+
+Optimal solution:
+- Initialize two variables majority and votes [Moore's voting algorithm]
+- Traverse through the array
+    - If Count is 0 then store the current element of the array as Element.
+    - If the current element and Element are the same increase the Count by 1.
+    - If they are different decrease the Count by 1.
+- The integer present in Element should be the result we are expecting
+
 class Solution {
     public int majorityElement(int[] nums) {
 
