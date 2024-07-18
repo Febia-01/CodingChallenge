@@ -1,21 +1,36 @@
 Pow(x, n) -> Leetcode 50
 
 Illustration:
+ x = 2.0000, n = 10
+ans = 1024.0000
 
+Brute force solution:
+- Looping from 1 to n and keeping ans(double) variable
+- Now every time your loop runs, multiply x with ans
+- Return ans
+T.C -> O(n), S.C -> O(1)
+
+Optimal solution:
+- Initialize ans as 1.0 and store a duplicate copy of n as N
+- Check if N is a negative number, in that case, make it positive
+- Continue this until N>0
+- If N is odd, multiply x with ans and reduce N by 1. Otherwise, multiply x with itself and divide N by 2.
+- After N becomes zero, check if N is negative, then ans = 1/ans
+T.C -> O(log n), S.C -> O(1)
 
 class Solution {
     public double myPow(double x, int n) {
 
         double ans = 1.0;
-        long nn = n;
-        if (nn < 0) nn = -1 * nn;
-        while (nn > 0) {
-            if (nn % 2 == 1) {
+        long N = n;
+        if (N < 0) N = -1 * N;
+        while (N > 0) {
+            if (N % 2 == 1) {
                 ans = ans * x;
-                nn = nn - 1;
+                N = N - 1;
             } else {
                 x = x * x;
-                nn = nn / 2;
+                N = N / 2;
             }
         }
         if (n < 0) ans = (double)(1.0) / (double)(ans);
