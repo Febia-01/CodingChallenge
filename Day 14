@@ -1,2 +1,32 @@
 Middle of the Linked List -> Leetcode 876
 
+Bruteforce approach:
+
+public ListNode middleNode(ListNode head) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode temp = head;
+        int count = 0;
+
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+
+        int mid = count / 2 + 1;
+        temp = head;
+
+        while (temp != null) {
+            mid = mid - 1;
+
+            if (mid == 0){
+                break;
+            }
+            temp = temp.next;
+        }
+
+        return temp;
+}
