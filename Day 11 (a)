@@ -1,2 +1,61 @@
 Two Sum -> Leetcode 1
 
+There are two varieties,
+1. Returning the indices of the numbers
+2. Returning true or false by checking whether there are two numbers like that.
+
+Illustration:
+nums = [2, 7, 11, 15] & target = 9
+nums[0] + nums[1] = 9 so we return the index
+ans = [0, 1]
+
+Brute force solution:
+- Pick one element and check with every other element after that element
+for(i=0;I<n-1;i++){
+  for(j=i+1;j<n;j++){
+    if(nums[i]+nums[j]==target)
+      return i, j;
+  }
+}
+T.C -> O(n^2), S.C -> O(1)
+
+Optimal solution:
+- Hashing
+- Here we take the difference between the target and the current variable and check if it is in the map or not
+- If it is there return the index and if not add it to the map.
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        int[] arr = {-1, -1};
+
+        for(int i = 0; i < nums.length; i++){
+            int num_we_need = target - nums[i];
+            if(map.containsKey(num_we_need)){
+                arr[0] = map.get(num_we_need);
+                arr[1] = i;
+                return arr;
+            }
+            map.put(nums[i], i);
+        }
+        return arr;
+    }
+}
+T.C -> O(n), S.C -> O(n)
+
+There is another solution for the second variety, but we will distort the array by sorting it here.
+- Two pointer (Greedy approach)
+int left=0, right=n-1;
+Arrays.sort(nums)
+while(left<right){
+  int sum = nums[left]+nums[right] 
+  if(sum==target)
+    return true
+  else if(sum<target)
+    left++
+  else
+    right--
+}
+return false
+T.C -> O(n) + O(nlogn), S.C -> O(1)
