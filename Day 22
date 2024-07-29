@@ -1,1 +1,17 @@
 Remove Duplicates from Sorted Array -> Leetcode 26
+
+There is a brute force approach using the two for-loops
+
+Better approach:
+using hashset
+if (n <= 1)
+    return n;
+Set<Integer> uniqueElements = new HashSet<>();
+for (int i = 0; i < n; ++i) {
+    uniqueElements.add(arr[i]);
+}
+int index = 0;
+for (int element : uniqueElements) {
+    arr[index++] = element;
+}
+return uniqueElements.size();
