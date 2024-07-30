@@ -1,1 +1,25 @@
+Rotate Array -> Leetcode 189
 
+Illustration:
+nums = [1,2,3,4,5,6,7], k = 3
+ans = [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 step to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+Using an extra space:
+T.C -> O(n), S.C -> O(n)
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        int[] arr = new int[n];
+        for(int i = 0; i < n; i++){
+            arr[(i+k) % n] = nums[i];
+        }
+        for(int i = 0; i < n; i++){
+            nums[i] = arr[i];
+        }   
+                                                                                                 
+    }
+}
