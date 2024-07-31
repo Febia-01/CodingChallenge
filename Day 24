@@ -1,1 +1,15 @@
+Intersection of Two Linked Lists -> Leetcode 160
 
+Brute force solution:
+T.C -> O(m*n), S.C -> O(1)
+while(headB != null) {
+    ListNode temp = headA;
+    while(temp != null) {
+        if(temp == headB) return headB;
+        temp = temp.next;
+    }
+    headB = headB.next;
+}
+return null;
+
+Better Solution:
