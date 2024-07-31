@@ -13,3 +13,14 @@ while(headB != null) {
 return null;
 
 Better Solution:
+T.C -> O(m+n), S.C -> O(n)
+HashSet<ListNode> st=new HashSet<>();
+while(headA != null) {
+st.add(headA);
+headA = headA.next;
+}
+while(headB != null) {
+    if(st.contains(headB)) return headB;
+    headB = headB.next;
+}
+return null;
