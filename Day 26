@@ -5,3 +5,15 @@ Input: head = [3,2,0,-4], pos = 1
 There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
 Ans: true
 
+Brute force solution:
+ListNode temp = head;
+HashMap<ListNode, Integer> nodeMap = new HashMap<>();
+while (temp != null) {
+    if (nodeMap.containsKey(temp)) {
+        return true;
+    }
+    nodeMap.put(temp, 1);
+    temp = temp.next;
+}
+return false;
+
