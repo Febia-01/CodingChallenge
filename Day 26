@@ -6,6 +6,7 @@ There is a cycle in the linked list, where the tail connects to the 1st node (0-
 Ans: true
 
 Brute force solution:
+T.C -> O(N * 2 * log(N)), S.C -> O(N) 
 ListNode temp = head;
 HashMap<ListNode, Integer> nodeMap = new HashMap<>();
 while (temp != null) {
