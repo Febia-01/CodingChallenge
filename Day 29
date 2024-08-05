@@ -9,13 +9,37 @@ Each word is printed vertically.
  "WEU"
 
 Solution:
-Split the string into words: Split the input string s into an array of words using the split() method.
-Find the maximum word length: Find the length of the longest word using a loop. This will determine the number of vertical words we will need to create.
+Split the string into words: Split the input string s into an array of words using the split() method. Find the maximum word length: Find the length of the longest word using a loop. This will determine the number of vertical words we will need to create.
 Create vertical words:
-Iterate through each character position (from 0 to maxLen - 1).
-For each character position, create a StringBuilder to build the vertical word.
-Iterate through each word in the array:
-If the current character position exists in the word, append the character to the StringBuilder.
-Otherwise, append a space to the StringBuilder.
-Trim trailing spaces from the built string and add it to the result list.
+  Iterate through each character position (from 0 to maxLen - 1).
+  For each character position, create a StringBuilder to build the vertical word.
+  Iterate through each word in the array:
+    If the current character position exists in the word, append the character to the StringBuilder.
+    Otherwise, append a space to the StringBuilder.
+  Trim trailing spaces from the built string and add them to the result list.
 Return the result: Return the list of vertical words.
+
+class Solution {
+    public List<String> printVertically(String s) {
+        String[] words = s.split(" ");
+        int maxLen = 0;
+        for (String word : words) {
+            maxLen = Math.max(maxLen, word.length());
+        }
+
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < maxLen; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (String word : words) {
+                if (i < word.length()) {
+                    sb.append(word.charAt(i));
+                } else {
+                    sb.append(" ");
+                }
+            }
+            result.add(sb.toString().stripTrailing()); 
+        }
+
+        return result;
+    }
+}
