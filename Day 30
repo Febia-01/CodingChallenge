@@ -1,2 +1,9 @@
 Longest Common Prefix -> Leetcode 14
 
+Illustration:
+Input: strs = ["flower","flow","flight"]
+ans: "fl"
+
+Input: strs = ["dog","racecar","car"]
+There is no common prefix among the input strings.
+ans: ""
