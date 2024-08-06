@@ -9,7 +9,24 @@ There is no common prefix among the input strings.
 ans: ""
 
 Solution:
-1. Horizontal scanning
+1. Vertical scanning:
+T.C -> O(n) S.C -> O(1)
+if (strs == null || strs.length == 0) {
+    return "";
+}
+
+for (int i = 0; i < strs[0].length(); i++) {
+    char c = strs[0].charAt(i);
+    for (int j = 1; j < strs.length; j++) {
+        if (i == strs[j].length() || strs[j].charAt(i) != c) {
+            return strs[0].substring(0, i);
+        }
+    }
+}
+
+return strs[0];
+
+2. Horizontal scanning
 T.C -> O(n) S.C -> O(1)
 if (strs == null || strs.length == 0) {
     return "";
