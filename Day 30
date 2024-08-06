@@ -10,6 +10,7 @@ ans: ""
 
 Solution:
 1. Horizontal scanning
+T.C -> O(n) S.C -> O(1)
 if (strs == null || strs.length == 0) {
     return "";
 }
