@@ -11,3 +11,20 @@ The students go in turns as follows:
 - Student number 2 uses 5 chalk, so k = 0.
 Student number 0 does not have enough chalk, so they will have to replace it.
 ans: 0
+
+Solution:
+class Solution {
+    public int chalkReplacer(int[] chalk, int k) {
+        long s = 0;
+        for (int x : chalk) {
+            s += x;
+        }
+        k %= s;
+        for (int i = 0;; ++i) {
+            if (k < chalk[i]) {
+                return i;
+            }
+            k -= chalk[i];
+        }
+    }
+}
