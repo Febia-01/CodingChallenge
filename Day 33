@@ -1,2 +1,8 @@
 Rotate List -> Leetcode 61
 
+Illustration:
+head = [1,2,3,4,5] 
+k = 2
+We have to rotate the list to the right twice.
+ans = [4,5,1,2,3]
+
