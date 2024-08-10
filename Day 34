@@ -5,7 +5,7 @@ head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 ans = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 
 Brute force solution:
-T.C -> O(n), S.C -> O(n)
+T.C -> O(n), S.C -> O(n)+O(n)
 Node temp = head;
 HashMap<Node, Node> map = new HashMap<>();
 while (temp != null) {
@@ -22,3 +22,6 @@ while (temp != null) {
     temp = temp.next;
 }
 return map.get(head);
+
+Optimal solution:
+T.C -> O()
