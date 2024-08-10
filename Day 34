@@ -1,1 +1,6 @@
 Copy List with Random Pointer -> Leetcode 138
+
+Illustration:
+head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+ans = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+
