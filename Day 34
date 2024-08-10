@@ -4,3 +4,20 @@ Illustration:
 head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 ans = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 
+Brute force solution:
+Node temp = head;
+HashMap<Node, Node> map = new HashMap<>();
+while (temp != null) {
+    Node newNode = new Node(temp.val);
+    map.put(temp, newNode);
+    temp = temp.next;
+}
+
+temp = head;
+while (temp != null) {
+    Node copyNode = map.get(temp);
+    copyNode.next = map.get(temp.next);
+    copyNode.random = map.get(temp.random);
+    temp = temp.next;
+}
+return map.get(head);
