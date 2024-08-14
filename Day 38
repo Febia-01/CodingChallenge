@@ -12,6 +12,7 @@ ans: "example good a"
 
 Solution 1: Two pointer
 T.C -> O(n), S.C -> O(n)
+Approach: use two pointers I and j to find each word, add it to the result list, then reverse the result list, and finally concatenate it into a string.
 List<String> words = new ArrayList<>();
 int n = s.length();
 for (int i = 0; i < n;) {
@@ -28,5 +29,12 @@ for (int i = 0; i < n;) {
         i = j;
     }
 }
+Collections.reverse(words);
+return String.join(" ", words);
+
+Solution 2: 
+T.C -> O(n), S.C -> O(n)
+Approach: use the built-in string split function to split the string into a list of words by spaces, then reverse the list, and finally concatenate it into a string.
+List<String> words = Arrays.asList(s.trim().split("\\s+"));
 Collections.reverse(words);
 return String.join(" ", words);
