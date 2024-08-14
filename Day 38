@@ -1,2 +1,5 @@
 Reverse Words in a String -> Leetcode 151
 
+Illustration:
+s = "the sky is blue"
+ans: "blue is sky the"
