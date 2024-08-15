@@ -1,1 +1,6 @@
- Longest Palindromic Substring -> Leetcode 5 
+Longest Palindromic Substring -> Leetcode 5 
+
+Illustration:
+Input: s = "babad"
+"aba" is also a valid answer.
+ans: "bab"
