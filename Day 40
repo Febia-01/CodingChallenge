@@ -1,1 +1,5 @@
 Roman to Integer -> Leetcode 13
+
+Illustration:
+Input: s = "III"
+ans: 3
