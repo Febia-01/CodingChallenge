@@ -10,7 +10,7 @@ Step 2: "42" (no characters read because there is neither a '-' nor '+')
 Step 3: "42" ("42" is read in)
 ans: 42
 
-Solution 1:
+Solution:
 if (s == null) return 0;
 int n = s.length();
 if (n == 0) return 0;
