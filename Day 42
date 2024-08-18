@@ -1,1 +1,6 @@
 Repeated String Match -> Leetcode 686
+
+Illustration:
+Input: a = "abcd", b = "cdabcdab"
+We return 3 because by repeating a three times "abcdabcdabcd", b is a substring of it.
+ans: 3
