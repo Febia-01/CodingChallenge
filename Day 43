@@ -32,3 +32,24 @@ while (p < len1) {
     }
 }
 return -1;
+
+Better Solution:
+int h = haystack.length();
+int n = needle.length();
+int i = 0, j = 0, ind = 0;
+
+while (i < h && j < n) {
+    ind = i;
+    while (i < h && j < n && haystack.charAt(i) == needle.charAt(j)) {
+        i++;
+        j++;
+    }
+    if (j >= n) return ind;
+    else {
+        j = 0;
+        i = ind + 1;
+    }
+}
+return -1;
+
+Optimal solution:
