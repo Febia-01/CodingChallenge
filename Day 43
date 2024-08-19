@@ -1,1 +1,7 @@
 Find the Index of the First Occurrence in a String -> Leetcode 28
+
+Illustration:
+haystack = "sadbutsad", needle = "sad"
+"sad" occurs at index 0 and 6.
+The first occurrence is at index 0, so we return 0.
+ans: 0
