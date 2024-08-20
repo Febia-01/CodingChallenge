@@ -1,1 +1,7 @@
+Valid Anagram -> Leetcode 242
 
+Illustration:
+1. s = "anagram", t = "nagaram"
+ans: true
+2. s = "rat", t = "car"
+ans: false
