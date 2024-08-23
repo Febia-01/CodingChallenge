@@ -23,3 +23,12 @@ for (int i = 0; i < n; i++) {
     }
 }
 return -1;
+
+Better solution:
+T.C -> O(n), S.C -> O(1)
+int n = nums.length;
+int ans = 0;
+for (int i = 0; i < n; i++) {
+    ans = ans ^ nums[i];
+}
+return ans;
