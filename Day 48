@@ -1,1 +1,7 @@
 Search in Rotated Sorted Array -> Leetcode 33
+
+Illustration:
+1. nums = [4,5,6,7,0,1,2], target = 0
+ans: 4
+2. nums = [4,5,6,7,0,1,2], target = 3
+ans: -1
