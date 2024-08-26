@@ -4,3 +4,15 @@ Illustration:
 nums = [-2,-1,-1,1,2,3]
 There are 3 positive integers and 3 negative integers. The maximum count among them is 3.
 ans: 3
+
+Brute force solution:
+T.C -> O(n), S.C -> O(1)
+int a = 0, b = 0;
+for (int x : nums) {
+    if (x > 0) {
+        ++a;
+    } else if (x < 0) {
+        ++b;
+    }
+}
+return Math.max(a, b);
