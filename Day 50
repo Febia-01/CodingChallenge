@@ -1,1 +1,6 @@
 Maximum Count of Positive Integer and Negative Integer -> Leetcode 2529
+
+Illustration:
+nums = [-2,-1,-1,1,2,3]
+There are 3 positive integers and 3 negative integers. The maximum count among them is 3.
+ans: 3
