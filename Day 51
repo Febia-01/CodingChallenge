@@ -4,3 +4,23 @@ Illustration:
 nums = [3,0,1]
 n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number since it does not appear in nums.
 ans: 2
+
+Brute force Solution: 
+- The naive approach using for loop
+
+Optimized solution:
+- Using Hash map
+class Solution {
+    public int missingNumber(int[] nums) {
+        int[] count = new int[nums.length+1];
+        for(int i=0;i<nums.length;i++){
+            count[nums[i]]++;
+        }
+        for(int i=0;i<=nums.length;i++){
+            if(count[i]==0){
+                return i;
+            }
+        }
+        return 0;
+    }
+}
