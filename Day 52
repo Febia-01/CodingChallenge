@@ -6,3 +6,23 @@ You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3.
 And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.
 You need to output 1.
 ans: 1
+
+Solution:
+- Sorting & Two pointer method used
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int m = g.length;
+        int n = s.length;
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j < n && s[j] < g[i]) {
+                ++j;
+            }
+            if (j++ >= n) {
+                return i;
+            }
+        }
+        return m;
+    }
+}
