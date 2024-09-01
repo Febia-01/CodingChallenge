@@ -1,1 +1,5 @@
 Palindrome Partitioning -> Leetcode 131
+
+Illustration:
+s = "aab"
+ans: [["a","a","b"],["aa","b"]]
