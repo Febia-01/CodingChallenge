@@ -1,1 +1,6 @@
+N-Queens -> Leetcode 51
 
+Illustration:
+n = 4
+There exist two distinct solutions to the 4-queens puzzle as shown above
+ans: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
