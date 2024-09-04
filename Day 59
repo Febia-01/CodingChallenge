@@ -7,6 +7,7 @@ ans: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
 
 Solution 1:
 - Using backtracking concept
+T.C -> O(n!*n), S.C -> O(n^2)
 public List<List<String>> solveNQueens(int n) {
         char[][] board = new char[n][n];
         for (int i = 0; i < n; i++)
