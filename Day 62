@@ -4,3 +4,15 @@ Illustration:
 nums = [2,3,-2,4]
 [2,3] has the largest product 6.
 ans: 6
+
+Brute force solution:
+T.C -> O(n^3), S.C -> O(1)
+int result = Integer.MIN_VALUE;
+for(int i=0;i<nums.length-1;i++) 
+    for(int j=i+1;j<nums.length;j++) {
+        int prod = 1;
+        for(int k=i;k<=j;k++) 
+            prod *= nums[k];
+        result = Math.max(result,prod);
+    }
+return result; 
