@@ -1,1 +1,8 @@
+Edit Distance -> Leetcode 72
 
+Illustration:
+Input: word1 = "horse", word2 = "ros"
+horse -> rorse (replace 'h' with 'r')
+rorse -> rose (remove 'r')
+rose -> ros (remove 'e')
+ans: 3
