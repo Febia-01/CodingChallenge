@@ -29,10 +29,10 @@ for(i=0;i<n;i++){
       arr[i][j] = 0;
   }
 }
-T.C = O(n^3)
+T.C = O(n^3) [O(n*m)(n+m)+O(n*m)]
 
 The solution I submitted on leetcode:
-2. Optimized solution
+2. Better solution
 - Calculate the number of rows (m) and columns (n) in the input matrix
 - Initialize two arrays to keep track of rows and columns should be zeroed out.
 - When encountered by zero mark the row and column element of arrays as 1.
@@ -57,6 +57,55 @@ class Solution {
                 if (arr1[i] == 1 || arr2[j] == 1) {
                     matrix[i][j] = 0;
                 }
+            }
+        }
+    }
+}
+T.C -> O(n*m) [2*n*m], S.C -> O(n+m)
+
+3. Optimized solution:
+- Rather than taking extra array for marking the columns and rows to be marked zero, use the first row and column.
+- for only first element, take one variable
+//column track -> matrix[0][i]
+//row track -> matrix[j][0]
+T.C -> O(n*m), S.C -> O(1) [only 1 extra variable is taken]
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        //column track -> matrix[0][i]
+        //row track -> matrix[j][0]
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int col0 = 1;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(matrix[i][j]==0){
+                    matrix[i][0] = 0;
+                    if(j != 0)
+                        matrix[0][j] = 0;
+                    else
+                        col0 = 0;
+                }
+            }
+        }
+
+        for(int i=1;i<n;i++){
+            for(int j=1;j<m;j++){
+                if(matrix[i][j] != 0){
+                    if(matrix[i][0] == 0 || matrix[0][j] == 0){
+                        matrix[i][j] = 0;
+                    }
+                }
+            }
+        }
+
+        if(matrix[0][0]==0){
+            for(int j=0;j<m;j++){
+                matrix[0][j] = 0;
+            }
+        }
+        if(col0 == 0){
+            for(int i=0;i<n;i++){
+                matrix[i][0] = 0;
             }
         }
     }
