@@ -1,1 +1,6 @@
 Minimum Path Sum -> Leetcode 64
+
+Illustration:
+grid = [[1,3,1],[1,5,1],[4,2,1]]
+Because the path 1 → 3 → 1 → 1 → 1 minimizes the sum.
+ans: 7
