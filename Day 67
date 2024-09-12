@@ -1,1 +1,6 @@
 Coin Change -> Leetcode 322
+
+Illustration:
+coins = [1,2,5], amount = 11
+11 = 5 + 5 + 1
+ans: 3
