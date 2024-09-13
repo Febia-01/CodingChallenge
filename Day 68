@@ -1,2 +1,6 @@
 Partition Equal Subset Sum -> Leetcode 416
 
+Illustration:
+nums = [1,5,11,5]
+The array can be partitioned as [1, 5, 5] and [11].
+ans: true
