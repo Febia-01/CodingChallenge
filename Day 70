@@ -1,2 +1,6 @@
 Word Break -> Leetcode 139
 
+Illustration:
+s = "leetcode", wordDict = ["leet","code"]
+Return true because "leetcode" can be segmented as "leet code".
+ans: true
