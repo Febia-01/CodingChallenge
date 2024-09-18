@@ -27,3 +27,5 @@ while (!minHeap.isEmpty()) {
 }
 
 return result;
+
+Solution 2:
