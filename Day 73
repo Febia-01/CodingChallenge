@@ -1,1 +1,5 @@
 K most frequent elements -> Leetcode 347
+
+Illustration:
+nums = [1,1,1,2,2,3], k = 2
+ans: [1,2]
