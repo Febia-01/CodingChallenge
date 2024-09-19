@@ -16,6 +16,7 @@ ans:
 [null, null, null, 2, 2, false]
 
 Solution:
+T.C -> O(n), S.C -> O(n)
 class MyStack {
 
     Queue < Integer > q = new LinkedList < > ();
