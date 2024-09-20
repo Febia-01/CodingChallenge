@@ -54,3 +54,37 @@ public boolean empty() {
     else 
         return false;
 }
+
+Solution 2:
+Using two Stacks where push operation is O(1)
+T.C -> O(1), S.C -> O(2n)
+class MyQueue {
+    Stack <Integer> input = new Stack <>();
+    Stack <Integer> output = new Stack <>();
+    public MyQueue() {
+    }
+    public void push(int x) {
+        input.push(x);
+    }
+    public int pop() {
+        if (output.empty())
+            while (input.empty() == false) {
+                output.push(input.peek());
+                input.pop();
+            }
+        int x = output.peek();
+        output.pop();
+        return x;
+    } 
+    public int peek() {
+        if (output.empty())
+            while (input.empty() == false) {
+                output.push(input.peek());
+                input.pop();
+            }
+        return output.peek();
+    }  
+    public boolean empty() {
+        return input.empty() && output.empty();
+    }
+}
