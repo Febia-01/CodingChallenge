@@ -1,2 +1,8 @@
 Valid Parentheses -> Leetcode 20
 
+Illustration:
+s = "()"
+ans: true
+
+s = "(]"
+ans: false
