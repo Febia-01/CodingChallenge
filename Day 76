@@ -8,6 +8,7 @@ s = "(]"
 ans: false
 
 Solution:
+T.C -> O(n), S.C -> O(n)
 class Solution {
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<Character>();
