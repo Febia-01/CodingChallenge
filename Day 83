@@ -1,1 +1,6 @@
 Rotting Oranges -> Leetcode 994
+
+Illustration:
+grid = [[2,1,1],[0,1,1],[1,0,1]]
+The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
+ans: -1
