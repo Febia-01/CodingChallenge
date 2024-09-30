@@ -14,3 +14,20 @@ stockSpanner.next(75);  // return 4, because the last 4 prices (including today'
 stockSpanner.next(85);  // return 6
 Output
 [null, 1, 1, 1, 2, 1, 4, 6]
+
+Solution:
+class StockSpanner {
+
+    public StockSpanner() {
+        
+    }
+    
+    public int next(int price) {
+        int span = 1;
+        while (!stack.isEmpty() && stack.peek().getKey() <= price)
+        span += stack.pop().getValue();
+        stack.push(new Pair<>(price, span));
+        return span;
+    }
+    private Stack<Pair<Integer, Integer>> stack = new Stack<>();
+}
