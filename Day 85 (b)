@@ -1,1 +1,5 @@
 Binary Tree Preorder Traversal -> Leetcode 144
+
+Illustration:
+root = [1,null,2,3]
+ans: [1,2,3]
