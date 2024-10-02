@@ -3,3 +3,21 @@ Binary Tree Preorder Traversal -> Leetcode 144
 Illustration:
 root = [1,null,2,3]
 ans: [1,2,3]
+
+Solution:
+T.C -> O(n), S.C -> O(n)
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> arr = new ArrayList<>();
+        preorder(root, arr);
+        return arr;
+    }
+    public void preorder(TreeNode root, List<Integer> arr) {
+        if (root == null) {
+            return;
+        }
+        arr.add(root.val);
+        preorder(root.left, arr);
+        preorder(root.right, arr);
+    }
+}
