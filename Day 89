@@ -1,1 +1,5 @@
 Binary Tree Level Order Traversal -> Leetcode 102
+
+Illustration:
+Input: root = [3,9,20,null,null,15,7]
+ans: [[3],[9,20],[15,7]]
