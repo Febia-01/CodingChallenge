@@ -1,2 +1,9 @@
 Vertical Order Traversal of a Binary Tree -> Leetcode 987
 
+Illustration:
+Input: root = [3,9,20,null,null,15,7]
+Column -1: Only node 9 is in this column.
+Column 0: Nodes 3 and 15 are in this column in that order from top to bottom.
+Column 1: Only node 20 is in this column.
+Column 2: Only node 7 is in this column.
+ans: [[9],[3,15],[20],[7]]
