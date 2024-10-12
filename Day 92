@@ -1,1 +1,5 @@
+Balanced Binary Tree -> Leetcode 110
 
+Illustration:
+root = [3,9,20,null,null,15,7]
+ans: true
